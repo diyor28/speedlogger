@@ -12,7 +12,7 @@ s = speedtest.Speedtest()
 with open(RESULTS_FILE, 'w', newline='') as csv_file:
 	writer = csv.DictWriter(csv_file, fieldnames=['download', 'upload', 'time'])
 	writer.writeheader()
-п
+
 prev_test = None
 
 while True:
