@@ -1,9 +1,11 @@
 import csv
 from datetime import datetime
 import time
-
+import os
 import speedtest
 
+if not os.path.exists('results/'):
+	os.mkdir('results')
 RESULTS_FILE = f"results/speed{datetime.now().strftime('%b%d%H%M')}.csv"
 TEST_EVERY = 60 * 15
 
