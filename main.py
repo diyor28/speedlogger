@@ -36,13 +36,15 @@ while True:
 		time.sleep(60)
 		continue
 
-	download, upload, ping = s.test()
-
-	with open(RESULTS_FILE, 'a', newline='') as csv_file:
-		writer = csv.DictWriter(csv_file, fieldnames=['download', 'upload', 'ping', 'time'])
-		writer.writerow({'download': download,
-						 'upload': upload,
-						 'ping': ping,
-						 'time': datetime.now()})
-	prev_test = time.time()
-	print(f"Download: {download} | Upload: {upload} | Ping: {ping}")
+	try:
+		download, upload, ping = s.test()
+		with open(RESULTS_FILE, 'a', newline='') as csv_file:
+			writer = csv.DictWriter(csv_file, fieldnames=['download', 'upload', 'ping', 'time'])
+			writer.writerow({'download': download,
+							 'upload': upload,
+							 'ping': ping,
+							 'time': datetime.now()})
+		prev_test = time.time()
+		print(f"Download: {download} | Upload: {upload} | Ping: {ping}")
+	except Exception as e:
+		print(e)
