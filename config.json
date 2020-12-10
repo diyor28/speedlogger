@@ -1,0 +1,9 @@
+{
+  "csv_dir": "results",
+  "graphs_dir": "graphs",
+  "test_every": 15,
+  "servers": [
+    2802,
+    3402
+  ]
+}
